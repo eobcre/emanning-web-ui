@@ -11,9 +11,9 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path='/' element={<HeroSection />} />
-        <Route path='about' element={<About />} />
-        <Route path='gallery' element={<Gallery />} />
-        <Route path='contact' element={<Contact />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/gallery' element={<Gallery />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
     </>
   );
