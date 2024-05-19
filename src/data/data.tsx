@@ -2,6 +2,36 @@ import { nanoid } from 'nanoid';
 import { BsLinkedin, BsGithub } from 'react-icons/bs';
 import { HiOutlineMail } from 'react-icons/hi';
 
+// * * * nav bar
+export function getNavData() {
+  return [
+    {
+      id: nanoid(),
+      name: 'Home',
+      href: '/',
+      background: 'bg-[#97dffc]',
+    },
+    {
+      id: nanoid(),
+      name: 'About',
+      href: '/about',
+      background: 'bg-[#858ae3]',
+    },
+    {
+      id: nanoid(),
+      name: 'Gallery',
+      href: '/gallery',
+      background: 'bg-[#613dc1]',
+    },
+    {
+      id: nanoid(),
+      name: 'Contact',
+      href: '/contact',
+      background: 'bg-[#4e148c]',
+    },
+  ];
+}
+
 // * * * icon bar
 export function getIconBarData() {
   return [
