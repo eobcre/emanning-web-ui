@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-text {
+    background-image: linear-gradient(
+      to right,
+      #97dffc,
+      #858ae3,
+      #613dc1,
+      #4e148c,
+      #613dc1
+    );
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  
+  /* invisible cursor */
+  .cursor {
+    animation: blink 1.5s ease-in-out infinite alternate;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* fade in all li */
+  ul li {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+  }
+  
+  ul li:nth-child(1) {
+    animation-delay: 0.15s;
+  }
+  
+  ul li:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
