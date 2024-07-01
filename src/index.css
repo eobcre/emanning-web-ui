@@ -3,54 +3,53 @@
 @tailwind utilities;
 
 .custom-text {
-    background-image: linear-gradient(
-      to right,
-      #97dffc,
-      #858ae3,
-      #613dc1,
-      #4e148c,
-      #613dc1
-    );
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #97dffc, #858ae3, #613dc1, #4e148c, #613dc1);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/* cursor */
+.cursor {
+  display: inline-block;
+  background-color: #ffffff;
+  animation: blink 1s step-end infinite;
+  margin-left: 1.5rem;
+  width: 4px;
+  height: 1em;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
   }
-  
-  /* invisible cursor */
-  .cursor {
-    animation: blink 1.5s ease-in-out infinite alternate;
-  }
-  
-  @keyframes blink {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  /* fade in all li */
-  ul li {
-    animation-name: fadeIn;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+  50% {
     opacity: 0;
   }
-  
-  ul li:nth-child(1) {
-    animation-delay: 0.15s;
+}
+
+/* fade in all li */
+ul li {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+ul li:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+ul li:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  ul li:nth-child(2) {
-    animation-delay: 0.3s;
+  to {
+    opacity: 1;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+}

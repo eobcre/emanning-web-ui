@@ -1,50 +1,40 @@
 import { useState, useEffect } from 'react';
 
 type TypeWritingProps = {
-  text: string;
+  text: string[];
   delay: number;
 };
 
 const TypeWrite: React.FC<TypeWritingProps> = ({ text, delay }) => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isCursorVisible, setIsCursorVisible] = useState(true);
+  const [lineIndex, setLineIndex] = useState(0);
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsCursorVisible((prev) => !prev);
-    }, delay * 2);
+    if (lineIndex < text.length) {
+      if (currentIndex < text[lineIndex].length) {
+        const typingTimeout = setTimeout(() => {
+          setCurrentText((prevText) => prevText + text[lineIndex][currentIndex]);
+          setCurrentIndex((prevIndex) => prevIndex + 1);
+        }, delay);
 
-    return () => clearTimeout(timeout);
-  }, [isCursorVisible, delay]);
+        return () => clearTimeout(typingTimeout);
+      } else if (lineIndex < text.length - 1) {
+        const lineTimeout = setTimeout(() => {
+          setCurrentText((prevText) => prevText + '\n');
+          setCurrentIndex(0);
+          setLineIndex((prevLineIndex) => prevLineIndex + 1);
+        }, delay);
 
-  useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setCurrentText((prevText) => prevText + text[currentIndex]);
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, delay);
-
-      return () => clearTimeout(timeout);
+        return () => clearTimeout(lineTimeout);
+      }
     }
-  }, [currentIndex, delay, text]);
-
-  // words includes developer, gallery, contact are true
-  const isFrontendDisplayed =
-    currentText.includes('Developer.') ||
-    currentText.includes('About.') ||
-    currentText.includes('Gallery.') ||
-    currentText.includes('Contact.');
-
-  // isFrontendDisplayed false
-  const showCursor = !isFrontendDisplayed;
+  }, [currentIndex, lineIndex, delay, text]);
 
   return (
-    <span className='custom-text text-6xl font-bold sm:text-[15vw]'>
+    <span className='custom-text text-6xl font-bold sm:text-[15vw] whitespace-pre-wrap'>
       {currentText}
-      <span className={showCursor ? 'cursor' : ''}>
-        {isCursorVisible ? '|' : ''}
-      </span>
+      <span className={`cursor`}>|</span>
     </span>
   );
 };
