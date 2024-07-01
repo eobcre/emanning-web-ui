@@ -9,6 +9,13 @@
   -webkit-background-clip: text;
 }
 
+.custom-tag-text {
+  background-image: linear-gradient(to right, #97dffc, #858ae3, #613dc1);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
 /* cursor */
 .cursor {
   display: inline-block;
