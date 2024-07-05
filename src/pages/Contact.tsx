@@ -1,14 +1,17 @@
 import { useForm } from 'react-hook-form';
+import { useSendEmail } from '../hooks/useEmail';
 import TypeWrite from '../components/TypeWrite';
 import Button from '../components/Button';
 
-type Form = {
+interface Form {
   name: string;
   email: string;
   message: string;
-};
+}
 
 const ContactPage = () => {
+  const { mutate: emailMutate } = useSendEmail();
+
   // react hook form
   const {
     register,
@@ -19,16 +22,16 @@ const ContactPage = () => {
   });
 
   // submit form
-  const onSubmit = async (data: Form) => {
+  const onSubmit = (data: Form) => {
     console.log(data);
 
-    await fetch('/api/email', {
-      method: 'POST',
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-        message: data.message,
-      }),
+    emailMutate(data, {
+      onSuccess: (res) => {
+        console.log('Email sent successfully:', res);
+      },
+      onError: (error) => {
+        console.error('Error sending email:', error);
+      },
     });
   };
 
