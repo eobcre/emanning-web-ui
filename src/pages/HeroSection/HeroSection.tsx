@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FaChevronDown } from 'react-icons/fa6';
 import TypeWrite from '../../components/TypeWrite';
 import IconBar from '../../components/IconBar';
+import Footer from '../../components/Footer';
 import Section from './Section';
 
 const HeroSection = () => {
@@ -42,6 +43,7 @@ const HeroSection = () => {
       <div id='next-section' ref={nextSectionRef} className='text-white bg-[#0D1225] p-10'>
         <Section />
       </div>
+      <Footer />
     </div>
   );
 };
