@@ -1,7 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { useSendEmail } from '../hooks/useEmail';
+import useStore from '../store/useStore';
 import TypeWrite from '../components/TypeWrite';
 import Button from '../components/Button';
+import Popup from '../components/Popup';
 
 interface Form {
   name: string;
@@ -11,11 +13,13 @@ interface Form {
 
 const ContactPage = () => {
   const { mutate: emailMutate } = useSendEmail();
+  const { isModalOpen, openModal, closeModal } = useStore();
 
   // react hook form
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<Form>({
     mode: 'onChange',
@@ -28,6 +32,7 @@ const ContactPage = () => {
     emailMutate(data, {
       onSuccess: (res) => {
         console.log('Email sent successfully:', res);
+        openModal();
       },
       onError: (error) => {
         console.error('Error sending email:', error);
@@ -86,6 +91,14 @@ const ContactPage = () => {
           />
         </form>
       </div>
+      {isModalOpen && (
+        <Popup
+          onClose={() => {
+            closeModal();
+            reset();
+          }}
+        />
+      )}
     </div>
   );
 };
