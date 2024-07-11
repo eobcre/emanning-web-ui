@@ -4,7 +4,7 @@ const axiosClient = axios.create({
   baseURL: 'http://localhost:5000',
 });
 
-interface ParamsProps {
+interface getParams {
   [key: string]: any;
 }
 
@@ -15,17 +15,21 @@ class ServerClient {
     this.endpoint = endpoint;
   }
 
-  get(params: ParamsProps) {
+  get(params: getParams) {
     console.log('Reached get API with params:', params);
     const config = {
+      headers: {},
       params: params,
     };
     return axiosClient.get(this.endpoint, config).then((res) => res);
   }
 
-  post(params: ParamsProps) {
+  post(params: getParams) {
     console.log('Attempting to send a post with params:', params);
-    return axiosClient.post(this.endpoint, params).then((res) => res);
+    const config = {
+      headers: {},
+    };
+    return axiosClient.post(this.endpoint, params, config).then((res) => res);
   }
 }
 
