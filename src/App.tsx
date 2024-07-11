@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import HeroSection from './pages/HeroSection/HeroSection';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
