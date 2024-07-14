@@ -11,8 +11,7 @@ type Experience = {
 };
 
 const About = () => {
-  const divStyle =
-    'bg-[#333333] bg-opacity-50 rounded-md -mt-3 sm:-mt-4 p-10 md:-mt-5 lg:-mt-6';
+  const divStyle = 'bg-[#333333] bg-opacity-50 -mt-3 sm:-mt-4 p-10 md:-mt-5 lg:-mt-6';
   const h1Style = 'custom-text text-5xl font-bold sm:text-[8vw]';
 
   return (
@@ -22,22 +21,17 @@ const About = () => {
         <div className='pt-20'>
           <h1 className={h1Style}>Me</h1>
           {/* me */}
-          <div className={divStyle}>
+          <div className={`rounded-md ${divStyle}`}>
             <div className='flex flex-col gap-6 md:p-14'>
-              <p className='text-2xl custom-text font-bold'>
-                Full Stack Software Developer based in PA.
+              <p className='text-2xl custom-text font-bold'>Full Stack Software Developer based in PA.</p>
+              <p className='text-gray-300'>
+                Fast-forward to the present, I've had the privilege of leading a Frontend Developer internship at a startup
+                specializing in web development. I began my journey in the industry as a software tester, navigated through map
+                alignment, and contributed to developing medical surveys. I'm always passionate about creativeq coding and curious
+                about learning new technologies!
               </p>
               <p className='text-gray-300'>
-                Fast-forward to the present, I've had the privilege of leading a
-                Frontend Developer internship at a startup specializing in web
-                development. I began my journey in the industry as a software
-                tester, navigated through map alignment, and contributed to
-                developing medical surveys. I'm always passionate about creativeq
-                coding and curious about learning new technologies!
-              </p>
-              <p className='text-gray-300'>
-                During my time away from the computer, I'm usually reading,
-                cooking and enjoying a coffee at cafe.
+                During my time away from the computer, I'm usually reading, cooking and enjoying a coffee at cafe.
               </p>
             </div>
           </div>
@@ -45,8 +39,17 @@ const About = () => {
         {/* experience */}
         <div className='pt-20'>
           <h1 className={h1Style}>Experience</h1>
-          {getMyExperience().map((me: Experience) => (
-            <div key={me.id} className={`md:p-24 ${divStyle}`}>
+          {getMyExperience().map((me: Experience, index, experiences) => (
+            <div
+              key={me.id}
+              className={`md:p-24 ${divStyle} ${
+                index === 0
+                  ? 'rounded-tl-md rounded-tr-md'
+                  : index === experiences.length - 1
+                  ? 'rounded-bl-md rounded-br-md'
+                  : ''
+              }`}
+            >
               <span className='text-sm text-gray-300'>{me.date}</span>
               <p className='custom-text font-bold'>{me.name}</p>
               <p className='text-gray-500'>{me.position}</p>
@@ -55,17 +58,12 @@ const About = () => {
                 <div className='flex flex-wrap gap-4 custom-tag-text text-sm mt-6'>
                   {Array.isArray(me.tech) ? (
                     me.tech.map((tech, index) => (
-                      <span
-                        key={index}
-                        className='border border-blue-300 rounded-3xl px-3 py-2'
-                      >
+                      <span key={index} className='border border-blue-300 rounded-3xl px-3 py-2'>
                         {tech}
                       </span>
                     ))
                   ) : (
-                    <span className='border border-blue-300 rounded-3xl px-3 py-2'>
-                      {me.tech}
-                    </span>
+                    <span className='border border-blue-300 rounded-3xl px-3 py-2'>{me.tech}</span>
                   )}
                 </div>
               )}
