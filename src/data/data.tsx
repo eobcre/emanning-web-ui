@@ -51,34 +51,6 @@ export const getMyExperience = [
   },
 ];
 
-// * * * footer nav
-export const getFooterNavData = [
-  {
-    id: nanoid(),
-    name: 'About',
-    href: '/about',
-    style: 'hover:opacity-70 hover:duration-200',
-  },
-  {
-    id: nanoid(),
-    name: 'Gallery',
-    href: '/gallery',
-    style: 'hover:opacity-70 hover:duration-200',
-  },
-  {
-    id: nanoid(),
-    name: 'Contact',
-    href: '/contact',
-    style: 'hover:opacity-70 hover:duration-200',
-  },
-  {
-    id: nanoid(),
-    name: 'Resume',
-    href: './',
-    style: 'hover:opacity-70 hover:duration-200',
-  },
-];
-
 // * * * footer icon
 export const getFooterIconData = [
   {

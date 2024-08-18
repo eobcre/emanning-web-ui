@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { getFooterNavData } from '../data/data';
 import { getFooterIconData } from '../data/data';
 
 const Footer = () => {
@@ -10,13 +9,6 @@ const Footer = () => {
           <p className='mr-10'>&copy; {new Date().getFullYear()} Emmy Manning All Rights Reserved.</p>
         </div>
         <div className='lg:flex'>
-          <div className='flex gap-5 mb-2 mr-10'>
-            {getFooterNavData.map((nav) => (
-              <Link key={nav.id} to={nav.href} className={nav.style}>
-                <p>{nav.name}</p>
-              </Link>
-            ))}
-          </div>
           <div className='flex gap-4'>
             {getFooterIconData.map((icon) => (
               <Link key={icon.id} to={icon.href} target={icon.target} rel={icon.rel}>
