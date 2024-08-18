@@ -91,7 +91,7 @@ const MainSection: React.FC<MainProps> = ({ scrollNextSection }) => {
       <div className='grow sm:block sm:mt-10 px-10'>
         {isTitleVisible && (
           <h1
-            className={`custom-font text-[9rem] leading-[9rem] mt-10 sm:text-[14rem] sm:leading-[14rem] uppercase ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'} ${
+            className={`custom-font text-[9rem] leading-[9rem] mt-10 sm:mt-0 sm:text-[14rem] sm:leading-[14rem] uppercase ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'} ${
               isTitleVisible ? 'block-fade-in' : ''
             }`}
           >
