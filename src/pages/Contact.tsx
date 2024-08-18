@@ -44,7 +44,7 @@ const ContactPage = () => {
   const textareaStyle = 'rounded-md outline-none resize-none mt-6 p-4 w-full';
 
   return (
-    <div className={`rounded-md mt-10 px-10 w-full min-h-screen ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
+    <div className={`rounded-md px-10 w-full min-h-screen ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
       <div className='pt-20 xl:px-36'>
         <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Contact</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
