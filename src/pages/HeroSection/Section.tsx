@@ -31,7 +31,7 @@ const Section = () => {
           <div className='col-span-2 text-center'>
             <Button
               buttonName='More'
-              className={`${isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md p-3 w-[10rem]' : 'bg-light-mode text-dark-mode uppercase font-bold rounded-md p-3 w-[10rem]'}`}
+              className={`${isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md p-3 w-[10rem]'}`}
             />
           </div>
         </div>

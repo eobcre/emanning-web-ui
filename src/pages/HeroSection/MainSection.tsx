@@ -108,13 +108,13 @@ const MainSection: React.FC<MainProps> = ({ scrollNextSection }) => {
             <Button
               buttonName='Showcase'
               className={`${
-                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-dark-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
+                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
               }`}
             />
             <Button
               buttonName='Resume'
               className={`${
-                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-dark-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
+                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
               }`}
             />
           </div>
