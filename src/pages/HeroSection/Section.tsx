@@ -1,5 +1,7 @@
+import useStore from '../../store/useStore';
 import { useRetrieveRepos } from '../../hooks/useRepo';
 import RepoCard from './RepoCard';
+import Button from '../../components/Button';
 
 interface RepoData {
   id: number;
@@ -7,23 +9,30 @@ interface RepoData {
 }
 
 const Section = () => {
+  const { isDarkMode } = useStore();
   const { data: repoData } = useRetrieveRepos();
-  console.log('repoData', repoData);
-
-  const divStyle = 'grid lg:grid-cols-2 gap-8 bg-[#333333] bg-opacity-50 rounded -mt-3 sm:-mt-4 p-20 md:-mt-5 lg:-mt-6';
-  const h1Style = 'custom-text text-5xl font-bold sm:text-[8vw]';
+  // console.log('repoData', repoData);
 
   return (
-    <div className='bg-[#0D1225] px-10 pb-20 md:pl-10 w-full md:pr-48'>
+    <div className={`rounded-md px-10 pb-20 w-full ${isDarkMode ? 'bg-[#5A5339]' : 'bg-[#e2c311]'}`}>
       <div className='xl:px-36'>
         <div className='pt-20'>
-          <h1 className={h1Style}>GitHub</h1>
-          <div className={divStyle}>
+          <div className='relative'>
+            <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'}`}>Stack</h1>
+            {/* <div className={`absolute top-[4.5rem] border-t-[20px] border-t-[#303030] opacity-50 w-full`}></div> */}
+          </div>
+          <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 rounded -mt-3 sm:-mt-4 lg:p-20 md:-mt-5 lg:-mt-6`}>
             {repoData?.map((data: RepoData) => (
               <div key={data.id}>
                 <RepoCard data={data} />
               </div>
             ))}
+          </div>
+          <div className='col-span-2 text-center'>
+            <Button
+              buttonName='More'
+              className={`${isDarkMode ? 'bg-[#e4d5b7] text-[#303030] uppercase font-bold rounded-md p-3 w-[10rem]' : 'bg-[#303030] text-white uppercase font-bold rounded-md p-3 w-[10rem]'}`}
+            />
           </div>
         </div>
       </div>
