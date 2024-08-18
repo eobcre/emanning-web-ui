@@ -15,7 +15,7 @@ const HeroSection = () => {
   return (
     <>
       <MainSection scrollNextSection={scrollNextSection} />
-      <div id='next-section' ref={nextSectionRef} className='text-white bg-[#303030] p-10'>
+      <div id='next-section' ref={nextSectionRef} className='text-white bg-light-mode p-10'>
         <Section />
       </div>
       <Footer />

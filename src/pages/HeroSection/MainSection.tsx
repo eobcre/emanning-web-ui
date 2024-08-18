@@ -58,9 +58,9 @@ const MainSection: React.FC<MainProps> = ({ scrollNextSection }) => {
           <Button
             buttonName={
               isNavOpen ? (
-                <Icon icon='zondicons:close' className={`text-3xl fixed top-4 right-4 z-20 ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'}`} />
+                <Icon icon='zondicons:close' className={`text-3xl fixed top-4 right-4 z-20 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`} />
               ) : (
-                <Icon icon='fontisto:nav-icon-grid' className={`text-[#303030] text-3xl fixed top-4 right-4 z-20 ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'}`} />
+                <Icon icon='fontisto:nav-icon-grid' className={`text-[#303030] text-3xl fixed top-4 right-4 z-20 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`} />
               )
             }
             onClick={toggleNav}
@@ -72,7 +72,7 @@ const MainSection: React.FC<MainProps> = ({ scrollNextSection }) => {
           } ${isDarkMode ? 'dark-nav-bg' : 'light-nav-bg'}`}
         >
           <div></div>
-          <ul className={`flex flex-col gap-10 text-center mt-14 px-10 py-4 md:flex-row md:gap-14 md:mt-0 md:p-0 text-xl font-bold uppercase ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'}`}>
+          <ul className={`flex flex-col gap-10 text-center mt-14 px-10 py-4 md:flex-row md:gap-14 md:mt-0 md:p-0 text-xl font-bold uppercase ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
             {getNavData.map((item) => (
               <li key={item.id} className='nav-item'>
                 <Link to={item.href}>{item.name}</Link>
@@ -82,7 +82,7 @@ const MainSection: React.FC<MainProps> = ({ scrollNextSection }) => {
           <div className='flex justify-center items-center mt-14 md:mt-0'>
             <Button
               buttonName={isDarkMode ? <Icon icon='mdi:light-switch-off' /> : <Icon icon='mdi:light-switch' />}
-              className={`text-[4rem] ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'}`}
+              className={`text-[4rem] ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}
               onClick={toggleMode}
             />
           </div>
@@ -91,7 +91,7 @@ const MainSection: React.FC<MainProps> = ({ scrollNextSection }) => {
       <div className='grow sm:block sm:mt-10 px-10'>
         {isTitleVisible && (
           <h1
-            className={`custom-font text-[9rem] leading-[9rem] mt-10 sm:mt-0 sm:text-[14rem] sm:leading-[14rem] uppercase ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'} ${
+            className={`custom-font text-[9rem] leading-[9rem] mt-10 sm:mt-0 sm:text-[14rem] sm:leading-[14rem] uppercase ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${
               isTitleVisible ? 'block-fade-in' : ''
             }`}
           >
@@ -108,13 +108,13 @@ const MainSection: React.FC<MainProps> = ({ scrollNextSection }) => {
             <Button
               buttonName='Showcase'
               className={`${
-                isDarkMode ? 'bg-[#e4d5b7] text-[#303030] uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-[#303030] text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
+                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-dark-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
               }`}
             />
             <Button
               buttonName='Resume'
               className={`${
-                isDarkMode ? 'bg-[#e4d5b7] text-[#303030] uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-[#303030] text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
+                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-dark-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
               }`}
             />
           </div>
@@ -123,7 +123,7 @@ const MainSection: React.FC<MainProps> = ({ scrollNextSection }) => {
       {isArrowVisible && (
         <div className='flex justify-center mb-4'>
           <div onClick={scrollNextSection}>
-            <FaChevronDown size={30} className='text-[#303030] cursor-pointer hover:opacity-70 ' />
+            <FaChevronDown size={30} className={`cursor-pointer hover:opacity-70 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`} />
           </div>
         </div>
       )}
