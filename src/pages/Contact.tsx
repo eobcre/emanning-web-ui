@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useSendEmail } from '../hooks/useEmail';
 import useStore from '../store/useStore';
-import TypeWrite from '../components/TypeWrite';
 import Button from '../components/Button';
 import Popup from '../components/Popup';
 
@@ -13,7 +12,7 @@ interface Form {
 
 const ContactPage = () => {
   const { mutate: emailMutate } = useSendEmail();
-  const { isModalOpen, openModal, closeModal } = useStore();
+  const { isModalOpen, openModal, closeModal, isDarkMode } = useStore();
 
   // react hook form
   const {
@@ -41,19 +40,14 @@ const ContactPage = () => {
   };
 
   // style
-  const h1Style = 'custom-text text-5xl font-bold sm:text-[8vw]';
   const inputStyle = 'rounded-md outline-none p-4 w-full';
   const textareaStyle = 'rounded-md outline-none resize-none mt-6 p-4 w-full';
 
   return (
-    <div className='bg-[#0D1225] px-10 py-20 w-full min-h-screen md:pl-10 md:pr-48'>
-      <TypeWrite text={['Contact.']} delay={200} />
+    <div className={`rounded-md mt-10 px-10 w-full min-h-screen ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
       <div className='pt-20 xl:px-36'>
-        <h1 className={h1Style}>Say Hello</h1>
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className='bg-[#333333] bg-opacity-50 rounded-md -mt-3 sm:-mt-4 p-10 md:-mt-5 lg:-mt-6'
-        >
+        <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Contact</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type='text'
             id='name'
@@ -85,10 +79,14 @@ const ContactPage = () => {
             })}
           ></textarea>
           <p className='text-gray-500 mt-2'>{errors.message?.message as React.ReactNode}</p>
-          <Button
-            buttonName='Send'
-            className='custom-text text-lg font-bold border border-blue-300 rounded-md mt-5 px-6 py-3 hover:text-[#97dffc] hover:duration-300'
-          />
+          <div className='flex justify-center items-center'>
+            <Button
+              buttonName='Send'
+              className={`${
+                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
+              }`}
+            />
+          </div>
         </form>
       </div>
       {isModalOpen && (
