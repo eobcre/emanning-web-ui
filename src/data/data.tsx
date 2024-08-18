@@ -1,27 +1,34 @@
 import { nanoid } from 'nanoid';
 import { Icon } from '@iconify/react';
+import { RefObject } from 'react';
 
 // * * * nav bar
-export const getNavData = [
+export const getNavData = (
+  scrollToTop: () => void,
+  scrollToSection: (sectionRef: RefObject<HTMLDivElement> | null) => void,
+  aboutRef: RefObject<HTMLDivElement>,
+  galleryRef: RefObject<HTMLDivElement>,
+  contactRef: RefObject<HTMLDivElement>
+) => [
   {
     id: nanoid(),
     name: 'Home',
-    href: '/',
+    scroll: () => scrollToTop(),
   },
   {
     id: nanoid(),
     name: 'About',
-    href: '/about',
+    scroll: () => scrollToSection(aboutRef),
   },
   {
     id: nanoid(),
     name: 'Gallery',
-    href: '/gallery',
+    scroll: () => scrollToSection(galleryRef),
   },
   {
     id: nanoid(),
     name: 'Contact',
-    href: '/contact',
+    scroll: () => scrollToSection(contactRef),
   },
 ];
 
