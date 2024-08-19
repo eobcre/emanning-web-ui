@@ -40,11 +40,11 @@ const ContactPage = () => {
   };
 
   // style
-  const inputStyle = 'rounded-md outline-none p-4 w-full';
+  const inputStyle = 'text-light-mode rounded-md outline-none p-4 w-full';
   const textareaStyle = 'rounded-md outline-none resize-none mt-6 p-4 w-full';
 
   return (
-    <div className={`rounded-md px-10 w-full min-h-screen ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
+    <div className={`sm:rounded-md px-10 pb-10 w-full min-h-screen ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
       <div className='pt-20 xl:px-36'>
         <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Contact</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -57,7 +57,7 @@ const ContactPage = () => {
               required: 'Please enter your name.',
             })}
           />
-          <p className='text-gray-500 mt-2'>{errors.name?.message as React.ReactNode}</p>
+          <p className={`mt-2 ${isDarkMode ? 'text-dark-mode' : 'text-red-600'}`}>{errors.name?.message as React.ReactNode}</p>
           <input
             type='email'
             id='email'
@@ -67,7 +67,7 @@ const ContactPage = () => {
               required: 'Please enter your email.',
             })}
           />
-          <p className='text-gray-500 mt-2'>{errors.email?.message as React.ReactNode}</p>
+          <p className={`mt-2 ${isDarkMode ? 'text-dark-mode' : 'text-red-600'}`}>{errors.email?.message as React.ReactNode}</p>
           <textarea
             id='message'
             cols={30}
@@ -78,14 +78,9 @@ const ContactPage = () => {
               required: 'Please enter your message.',
             })}
           ></textarea>
-          <p className='text-gray-500 mt-2'>{errors.message?.message as React.ReactNode}</p>
-          <div className='flex justify-center items-center'>
-            <Button
-              buttonName='Send'
-              className={`${
-                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
-              }`}
-            />
+          <p className={`mt-2 ${isDarkMode ? 'text-dark-mode' : 'text-red-600'}`}>{errors.message?.message as React.ReactNode}</p>
+          <div className='flex justify-center items-center my-6 '>
+            <Button buttonName='Send' className={`uppercase font-bold rounded-md p-3 w-[10rem] ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`} />
           </div>
         </form>
       </div>

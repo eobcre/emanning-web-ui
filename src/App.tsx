@@ -25,13 +25,13 @@ const App = () => {
   return (
     <>
       <Hero scrollNextSection={scrollNextSection} scrollToSection={scrollToSection} aboutRef={aboutRef} galleryRef={galleryRef} contactRef={contactRef} />
-      <div ref={aboutRef} className='text-white bg-light-mode p-10'>
+      <div ref={aboutRef} className='text-white bg-light-mode sm:p-10'>
         <About />
       </div>
-      <div ref={galleryRef} className='text-white bg-light-mode px-10'>
+      <div ref={galleryRef} className='text-white bg-light-mode sm:px-10'>
         <Gallery />
       </div>
-      <div ref={contactRef} className='text-white bg-light-mode px-10 pt-10'>
+      <div ref={contactRef} className='text-white bg-light-mode sm:px-10 sm:pt-10'>
         <Contact />
       </div>
       <Footer />

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import useStore from '../store/useStore';
 import { useRetrieveRepos } from '../hooks/useRepo';
 import RepoCard from '../components/RepoCard';
@@ -14,7 +15,7 @@ const Section = () => {
   // console.log('repoData', repoData);
 
   return (
-    <div className={`rounded-md px-10 pb-20 w-full ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
+    <div className={`sm:rounded-md px-10 pb-20 w-full ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
       <div className='xl:px-36'>
         <div className='pt-20'>
           <div className='relative'>
@@ -28,11 +29,10 @@ const Section = () => {
               </div>
             ))}
           </div>
-          <div className='col-span-2 text-center'>
-            <Button
-              buttonName='More'
-              className={`${isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md p-3 w-[10rem]'}`}
-            />
+          <div className='col-span-2 text-center mt-10 md:mt-0'>
+            <Link to='https://github.com/eobcre'>
+              <Button buttonName='More' className={`uppercase font-bold rounded-md p-3 w-[10rem] ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`} />
+            </Link>
           </div>
         </div>
       </div>
