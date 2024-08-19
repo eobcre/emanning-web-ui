@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import useStore from '../store/useStore';
 import Button from './Button';
@@ -17,6 +17,7 @@ interface NavProps {
 }
 
 const Nav: React.FC<NavProps> = ({ isNavOpen, setNavOpen, toggleMode, navData }) => {
+  const [isSwitchLabelVisible, setSwitchLabelVisible] = useState(false);
   const { isDarkMode } = useStore();
 
   const ref = useRef<HTMLDivElement | null>(null);
@@ -27,9 +28,11 @@ const Nav: React.FC<NavProps> = ({ isNavOpen, setNavOpen, toggleMode, navData })
         if (window.scrollY > 0) {
           ref.current.classList.add(isDarkMode ? 'dark-nav-bg' : 'light-nav-bg');
           ref.current.classList.remove('bg-transparent');
+          setSwitchLabelVisible(false);
         } else {
           ref.current.classList.add('bg-transparent');
           ref.current.classList.remove(isDarkMode ? 'dark-nav-bg' : 'light-nav-bg');
+          setSwitchLabelVisible(true);
         }
       }
     };
@@ -61,7 +64,8 @@ const Nav: React.FC<NavProps> = ({ isNavOpen, setNavOpen, toggleMode, navData })
           </li>
         ))}
       </ul>
-      <div className='flex justify-center items-center mt-14 md:mt-0'>
+      <div className='flex flex-col justify-center items-center mt-14 md:mt-0'>
+        {isSwitchLabelVisible && <span className={`font-bold ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{isDarkMode ? 'OFF' : 'ON'}</span>}
         <Button
           buttonName={isDarkMode ? <Icon icon='mdi:light-switch-off' /> : <Icon icon='mdi:light-switch' />}
           className={`text-[4rem] ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}
