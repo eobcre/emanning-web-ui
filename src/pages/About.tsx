@@ -29,12 +29,13 @@ const About = () => {
           <h1 className={h1Style}>Work History</h1>
           {getMyExperience.map((me) => (
             <div key={me.id} className={`py-10 md:p-24 ${divStyle}`}>
-              <span className={`text-sm ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.date}</span>
-              <p className={`font-bold ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.name}</p>
-              <p className={`${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.position}</p>
-              <p className={`mt-4 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.description}</p>
+              <span className={`text-sm md:text-base ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.date}</span>
+              <p className={`text-xl mt-1 md:text-xl font-bold ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.name}</p>
+              <p className={`text-sm font-bold md:text-base mt-1 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.position}</p>
+              <p className={`md:text-lg mt-4 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.description}</p>
+              {/* tag */}
               {me.tech && me.tech.length > 0 && (
-                <div className={`flex flex-wrap gap-4 text-sm mt-6 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+                <div className={`flex flex-wrap gap-4 text-sm mt-10 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
                   {Array.isArray(me.tech) ? (
                     me.tech.map((tech, index) => (
                       <span key={index} className={`border-2 rounded-3xl px-3 py-2 ${isDarkMode ? 'border-dark-mode bg-light-mode' : 'text-white border-light-mode bg-light-mode'}`}>
