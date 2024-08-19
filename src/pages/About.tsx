@@ -1,15 +1,6 @@
 import { getMyExperience } from '../data/data';
 import useStore from '../store/useStore';
 
-type Experience = {
-  id: string;
-  date: string;
-  name: string;
-  position?: string;
-  description: string;
-  tech?: string[] | string;
-};
-
 const About = () => {
   const { isDarkMode } = useStore();
 
