@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import useStore from '../store/useStore';
 import Button from './Button';
