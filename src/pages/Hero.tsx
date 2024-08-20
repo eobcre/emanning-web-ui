@@ -83,10 +83,10 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
         </div>
         <Nav isNavOpen={isNavOpen} setNavOpen={setNavOpen} toggleMode={toggleMode} navData={navData} />
       </div>
-      <div className='flex flex-col justify-center items-center md:block grow sm:mt-16 px-10'>
+      <div className='flex flex-col justify-center items-center min-h-[16rem] md:block grow sm:mt-16 px-10'>
         {isTitleVisible && (
           <h1
-            className={`custom-font text-[9rem] leading-[9rem] mt-10 sm:text-[14rem] sm:leading-[14rem] uppercase ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${
+            className={`custom-font text-[8rem] leading-[8rem] mt-10 sm:text-[14rem] sm:leading-[14rem] uppercase ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${
               isTitleVisible ? 'block-fade-in' : ''
             }`}
           >
@@ -95,41 +95,47 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
             And Dev
           </h1>
         )}
-        {isSubTitleVisible && (
-          <p className={`text-xl font-bold uppercase py-3 ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'} ${isSubTitleVisible ? 'block-fade-in' : ''}`}>Mern Stack Developer</p>
-        )}
-        {isButtonVisible && (
-          <div className={`flex gap-7 ${isButtonVisible ? 'block-fade-in' : ''}`}>
-            <Button
-              buttonName={isHoverShowCase ? 'Coming Soon' : 'Showcase'}
-              onClick={() => navigate('./showcase')}
-              className={`${
-                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
-              }`}
-              onMouseEnter={() => setHoverShowCase(true)}
-              onMouseLeave={() => setHoverShowCase(false)}
-            />
-            <Button
-              buttonName={isHoverResume ? 'View' : 'Resume'}
-              className={`${
-                isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
-              }`}
-              onMouseEnter={() => setHoverResume(true)}
-              onMouseLeave={() => setHoverResume(false)}
-              href='/assets/Resume.pdf'
-              target='_blank'
-              rel='noopener noreferrer'
-            />
+        <div className='min-h-[3rem]'>
+          {isSubTitleVisible && (
+            <p className={`text-xl font-bold uppercase py-3 ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'} ${isSubTitleVisible ? 'block-fade-in' : ''}`}>Mern Stack Developer</p>
+          )}
+        </div>
+        <div className='min-h-[6rem]'>
+          {isButtonVisible && (
+            <div className={`flex gap-7 ${isButtonVisible ? 'block-fade-in' : ''}`}>
+              <Button
+                buttonName={isHoverShowCase ? 'Coming Soon' : 'Showcase'}
+                onClick={() => navigate('./showcase')}
+                className={`${
+                  isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
+                }`}
+                onMouseEnter={() => setHoverShowCase(true)}
+                onMouseLeave={() => setHoverShowCase(false)}
+              />
+              <Button
+                buttonName={isHoverResume ? 'View' : 'Resume'}
+                className={`${
+                  isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
+                }`}
+                onMouseEnter={() => setHoverResume(true)}
+                onMouseLeave={() => setHoverResume(false)}
+                href='/assets/Resume.pdf'
+                target='_blank'
+                rel='noopener noreferrer'
+              />
+            </div>
+          )}
+        </div>
+      </div>
+      <div className='min-h-[3rem]'>
+        {isArrowVisible && (
+          <div className='flex justify-center mb-4'>
+            <div onClick={scrollNextSection}>
+              <FaChevronDown size={30} className={`cursor-pointer hover:opacity-70 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`} />
+            </div>
           </div>
         )}
       </div>
-      {isArrowVisible && (
-        <div className='flex justify-center mb-4'>
-          <div onClick={scrollNextSection}>
-            <FaChevronDown size={30} className={`cursor-pointer hover:opacity-70 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`} />
-          </div>
-        </div>
-      )}
     </div>
   );
 };
