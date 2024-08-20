@@ -101,7 +101,7 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
         {isButtonVisible && (
           <div className={`flex gap-7 ${isButtonVisible ? 'block-fade-in' : ''}`}>
             <Button
-              buttonName={isHoverShowCase ? 'View' : 'Showcase'}
+              buttonName={isHoverShowCase ? 'Coming Soon' : 'Showcase'}
               onClick={() => navigate('./showcase')}
               className={`${
                 isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
