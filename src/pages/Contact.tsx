@@ -44,7 +44,7 @@ const ContactPage = () => {
 
   // style
   const inputStyle = 'text-light-mode rounded-md outline-none p-4 w-full';
-  const textareaStyle = 'rounded-md outline-none resize-none mt-6 p-4 w-full';
+  const textareaStyle = 'text-light-mode rounded-md outline-none resize-none mt-6 p-4 w-full';
 
   return (
     <div className={`sm:rounded-md px-10 pb-10 w-full min-h-screen ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
@@ -80,11 +80,19 @@ const ContactPage = () => {
             {...register('message', {
               required: 'Please enter your message.',
             })}
-          ></textarea>
+          />
           <p className={`mt-2 ${isDarkMode ? 'text-dark-mode' : 'text-red-600'}`}>{errors.message?.message as React.ReactNode}</p>
           <div className='flex justify-center items-center my-6'>
             <Button
-              buttonName={isHoverSend ? <div className='flex justify-center items-center'><Icon icon="lucide:send" className='text-2xl' /></div> : 'Send'}
+              buttonName={
+                isHoverSend ? (
+                  <div className='flex justify-center items-center'>
+                    <Icon icon='lucide:send' className='text-2xl' />
+                  </div>
+                ) : (
+                  'Send'
+                )
+              }
               className={`uppercase font-bold rounded-md p-3 w-[10rem] ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`}
               onMouseEnter={() => setHoverSend(true)}
               onMouseLeave={() => setHoverSend(false)}
