@@ -67,7 +67,7 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
   };
 
   return (
-    <div className={`flex flex-col md:py-4 w-full h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`flex flex-col md:py-4 w-full min-h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className='md:block'>
         <div className='flex justify-end p-4 md:hidden'>
           <Button
