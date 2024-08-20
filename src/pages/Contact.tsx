@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSendEmail } from '../hooks/useEmail';
 import useStore from '../store/useStore';
@@ -11,6 +12,7 @@ interface Form {
 }
 
 const ContactPage = () => {
+  const [isHoverSend, setHoverSend] = useState(false);
   const { mutate: emailMutate } = useSendEmail();
   const { isModalOpen, openModal, closeModal, isDarkMode } = useStore();
 
@@ -80,7 +82,12 @@ const ContactPage = () => {
           ></textarea>
           <p className={`mt-2 ${isDarkMode ? 'text-dark-mode' : 'text-red-600'}`}>{errors.message?.message as React.ReactNode}</p>
           <div className='flex justify-center items-center my-6 '>
-            <Button buttonName='Send' className={`uppercase font-bold rounded-md p-3 w-[10rem] ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`} />
+            <Button
+              buttonName={isHoverSend ? 'Click Me' : 'Send'}
+              className={`uppercase font-bold rounded-md p-3 w-[10rem] ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`}
+              onMouseEnter={() => setHoverSend(true)}
+              onMouseLeave={() => setHoverSend(false)}
+            />
           </div>
         </form>
       </div>
