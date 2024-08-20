@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import useStore from '../store/useStore';
 import { useRetrieveRepos } from '../hooks/useRepo';
 import RepoCard from '../components/RepoCard';
@@ -32,14 +31,15 @@ const Section = () => {
             ))}
           </div>
           <div className='col-span-2 text-center mt-10 md:mt-0'>
-            <Link to='https://github.com/eobcre'>
-              <Button
-                buttonName={isHoverMore ? 'Open' : 'More'}
-                className={`uppercase font-bold rounded-md p-3 w-[10rem] ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`}
-                onMouseEnter={() => setHoverMore(true)}
-                onMouseLeave={() => setHoverMore(false)}
-              />
-            </Link>
+            <Button
+              buttonName={isHoverMore ? 'View' : 'More'}
+              className={`uppercase font-bold rounded-md p-3 w-[10rem] ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`}
+              onMouseEnter={() => setHoverMore(true)}
+              onMouseLeave={() => setHoverMore(false)}
+              href='https://github.com/eobcre?tab=repositories'
+              target='_blank'
+              rel='noopener noreferrer'
+            />
           </div>
         </div>
       </div>

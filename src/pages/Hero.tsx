@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import { getNavData } from '../data/data';
 import useStore from '../store/useStore';
@@ -23,6 +24,8 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
   const [isHoverShowCase, setHoverShowCase] = useState(false);
   const [isHoverResume, setHoverResume] = useState(false);
   const { isDarkMode, toggleDarkMode } = useStore();
+
+  const navigate = useNavigate();
 
   // scroll top home
   const scrollToTop = () => {
@@ -98,7 +101,8 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
         {isButtonVisible && (
           <div className={`flex gap-7 ${isButtonVisible ? 'block-fade-in' : ''}`}>
             <Button
-              buttonName={isHoverShowCase ? 'Open' : 'Showcase'}
+              buttonName={isHoverShowCase ? 'View' : 'Showcase'}
+              onClick={() => navigate('./showcase')}
               className={`${
                 isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
               }`}
@@ -106,7 +110,7 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
               onMouseLeave={() => setHoverShowCase(false)}
             />
             <Button
-              buttonName={isHoverResume ? 'Open' : 'Resume'}
+              buttonName={isHoverResume ? 'View' : 'Resume'}
               className={`${
                 isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
               }`}

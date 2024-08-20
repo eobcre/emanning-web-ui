@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Icon } from '@iconify/react';
 import { useForm } from 'react-hook-form';
 import { useSendEmail } from '../hooks/useEmail';
 import useStore from '../store/useStore';
@@ -81,9 +82,9 @@ const ContactPage = () => {
             })}
           ></textarea>
           <p className={`mt-2 ${isDarkMode ? 'text-dark-mode' : 'text-red-600'}`}>{errors.message?.message as React.ReactNode}</p>
-          <div className='flex justify-center items-center my-6 '>
+          <div className='flex justify-center items-center my-6'>
             <Button
-              buttonName={isHoverSend ? 'Click Me' : 'Send'}
+              buttonName={isHoverSend ? <div className='flex justify-center items-center'><Icon icon="lucide:send" className='text-2xl' /></div> : 'Send'}
               className={`uppercase font-bold rounded-md p-3 w-[10rem] ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`}
               onMouseEnter={() => setHoverSend(true)}
               onMouseLeave={() => setHoverSend(false)}
