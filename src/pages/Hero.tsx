@@ -20,6 +20,8 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
   const [isSubTitleVisible, setSubTitleVisible] = useState(false);
   const [isButtonVisible, setButtonVisible] = useState(false);
   const [isArrowVisible, setArrowVisible] = useState(false);
+  const [isHoverShowCase, setHoverShowCase] = useState(false);
+  const [isHoverResume, setHoverResume] = useState(false);
   const { isDarkMode, toggleDarkMode } = useStore();
 
   // scroll top home
@@ -62,7 +64,7 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
   };
 
   return (
-    <div className={`flex flex-col md:py-4 w-full min-h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`flex flex-col md:py-4 w-full h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className='md:block'>
         <div className='flex justify-end p-4 md:hidden'>
           <Button
@@ -96,16 +98,23 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
         {isButtonVisible && (
           <div className={`flex gap-7 ${isButtonVisible ? 'block-fade-in' : ''}`}>
             <Button
-              buttonName='Showcase'
+              buttonName={isHoverShowCase ? 'Open' : 'Showcase'}
               className={`${
                 isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
               }`}
+              onMouseEnter={() => setHoverShowCase(true)}
+              onMouseLeave={() => setHoverShowCase(false)}
             />
             <Button
-              buttonName='Resume'
+              buttonName={isHoverResume ? 'Open' : 'Resume'}
               className={`${
                 isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
               }`}
+              onMouseEnter={() => setHoverResume(true)}
+              onMouseLeave={() => setHoverResume(false)}
+              href='/assets/Resume.pdf'
+              target='_blank'
+              rel='noopener noreferrer'
             />
           </div>
         )}
