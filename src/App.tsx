@@ -1,11 +1,13 @@
+import { Routes, Route } from 'react-router-dom';
 import { useRef } from 'react';
 import Hero from './pages/Hero';
+import ShowCase from './pages/ShowCase';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 
-const App = () => {
+export const HomePage = () => {
   const aboutRef = useRef<HTMLDivElement | null>(null);
   const galleryRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
@@ -36,6 +38,15 @@ const App = () => {
       </div>
       <Footer />
     </>
+  );
+};
+
+const App = () => {
+  return (
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/showcase' element={<ShowCase />} />
+      </Routes>
   );
 };
 
