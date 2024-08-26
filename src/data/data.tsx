@@ -39,7 +39,7 @@ export const getMyExperience = [
     date: '2024 Feb - Present',
     name: 'Full Stack Software Engineer',
     description: `Created advanced solutions for Financial Services. Built a specialized operating system for the sector and implemented data storage systems using MongoDB and Supabase for flexible and real-time data handling. Led the creation of a user-friendly Form Builder tool with features for form creation, sharing, role-based permissions, real-time notification implementation, Task Workflow Manager, implemented an email API by nodemailer.  Additionally,  I had the privilege to design some of the introductory product pages, which I found enjoyable as I like being creative and designing.`,
-    tech: ['JavaScript', 'React.js', 'HTML & CSS', 'Tanstack-Query', 'Zustand', 'React Hook Form', 'Socket.io', 'Node.js', 'Express.js', 'Postgres', 'Supabase', 'Mongo DB'],
+    tech: ['JavaScript', 'React.js', 'HTML & CSS', 'Tanstack-Query', 'Zustand', 'React Hook Form', 'Socket.io', 'Node.js', 'Express.js', 'Postgres', 'Supabase', 'Mongo DB', 'AWS'],
   },
   {
     id: nanoid(),
