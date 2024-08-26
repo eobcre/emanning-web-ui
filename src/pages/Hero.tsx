@@ -33,10 +33,6 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
   };
   const navData = getNavData(scrollToTop, scrollToSection, aboutRef, galleryRef, contactRef);
 
-  const toggleNav = () => {
-    setNavOpen((prev) => !prev);
-  };
-
   useEffect(() => {
     const delayTitle = setTimeout(() => {
       setTitleVisible(true);
@@ -61,6 +57,10 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
       clearTimeout(delayArrow);
     };
   }, []);
+
+  const toggleNav = () => {
+    setNavOpen((prev) => !prev);
+  };
 
   const toggleMode = () => {
     toggleDarkMode();
@@ -97,14 +97,14 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
         )}
         <div className='min-h-[3rem]'>
           {isSubTitleVisible && (
-            <p className={`text-xl font-bold uppercase py-3 ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'} ${isSubTitleVisible ? 'block-fade-in' : ''}`}>Mern Stack Developer</p>
+            <p className={`text-xl font-bold uppercase py-3 ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'} ${isSubTitleVisible ? 'block-fade-in' : ''}`}>Full Stack Developer</p>
           )}
         </div>
         <div className='min-h-[6rem]'>
           {isButtonVisible && (
             <div className={`flex gap-7 ${isButtonVisible ? 'block-fade-in' : ''}`}>
               <Button
-                buttonName={isHoverShowCase ? 'Coming Soon' : 'Showcase'}
+                buttonName={isHoverShowCase ? 'View' : 'Showcase'}
                 onClick={() => navigate('./showcase')}
                 className={`${
                   isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
