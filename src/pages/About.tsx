@@ -1,52 +1,75 @@
+import { useState, useEffect, useRef } from 'react';
 import { getMyExperience } from '../data/data';
 import useStore from '../store/useStore';
 
 const About = () => {
+  const [isVisible, setVisible] = useState(false);
   const { isDarkMode } = useStore();
 
-  const divStyle = 'md:p-10';
-  const h1Style = 'custom-font text-light-mode text-5xl uppercase sm:text-[8vw]';
+  // ref
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  // scroll observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    });
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
 
   return (
-    <div className={`sm:rounded-md px-10 w-full min-h-screen md:pb-10 ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
-      <div className='xl:px-36'>
-        <div className='pt-20'>
-          <h1 className={h1Style}>About</h1>
-          {/* me */}
-          <div className='flex flex-col gap-6 pt-10 md:p-14'>
+    <div className={`py-20 sm:rounded-md md:px-10 w-full min-h-screen md:pb-10 ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
+      <div className='md:flex'>
+        {/* left container */}
+        <div className='flex contents-scroll md:w-1/2'>
+          <h1 className={`px-6 pb-16 md:px-0 md:pb-0 md:flex md:items-center custom-font text-7xl uppercase sm:text-[14vw] ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+            {isVisible ? 'My Career' : 'About Me'}
+          </h1>
+        </div>
+        {/* right container */}
+        <div className='flex flex-col gap-20 px-6 md:px-14 md:py-20 md:w-1/2 min-h-screen'>
+          {/* about section */}
+          <div className='flex flex-col justify-center gap-6 md:h-screen'>
             <p className={`text-2xl font-bold ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Full Stack Software Developer based in PA.</p>
             <p className={`text-md md:text-lg ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-              Fast-forward to the present, I've had the privilege of leading a Frontend Developer internship at a startup specializing in web development. I began my journey in the industry as a
-              software tester, navigated through map alignment, and contributed to developing medical surveys. I'm always passionate about creative coding and curious about learning new technologies!
+              Fast-forward to the present, I am currently developing an operating system tailored for financial services, where I integrate both ends expertise to create seamless and secure
+              applications. I began my journey in the industry as a software tester, where I honed my attention to detail and problem solving skills. My career path took me through diverse roles,
+              including map alignment for Google Map. I've made meaningful contributions to developing medical surveys, emphasizing my commitment to projects that impact lives. I've also had the
+              privilege of leading a Frontend Developer Internship at a startup specializing in web development, which allowed me to learn, develop, mentor, and guide the team. I am always passionate
+              about creative coding and driven by an insatiable curiosity to learn new technologies.
             </p>
             <p className={`text-md md:text-lg ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-              During my time away from the computer, I'm usually reading, cooking and enjoying a coffee at cafe.
+              During my time away from the computer, I'm usually reading, cooking and enjoying a coffee at cafe. These moments away from the screen recharge my creativity and keep me inspired.
             </p>
           </div>
-        </div>
-        {/* work history */}
-        <div className='pt-20'>
-          <h1 className={h1Style}>Work History</h1>
-          {getMyExperience.map((me) => (
-            <div key={me.id} className={`py-10 md:p-24 ${divStyle}`}>
-              <span className={`text-sm md:text-base ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.date}</span>
-              <p className={`text-xl mt-1 md:text-xl font-bold ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.name}</p>
-              <p className={`text-sm font-bold md:text-base mt-1 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.position}</p>
-              <p className={`md:text-lg mt-4 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{me.description}</p>
+          {/* career section */}
+          {getMyExperience.map((work) => (
+            <div ref={sectionRef} key={work.id}>
+              <span className={`text-sm md:text-base ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.date}</span>
+              <p className={`text-xl md:text-xl font-bold mt-1 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.name}</p>
+              <p className={`text-sm md:text-base font-bold mt-1 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.position}</p>
+              <p className={`md:text-lg mt-4 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.description}</p>
               {/* tag */}
-              {me.tech && me.tech.length > 0 && (
-                <div className={`flex flex-wrap gap-4 text-sm mt-10 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-                  {Array.isArray(me.tech) ? (
-                    me.tech.map((tech, index) => (
-                      <span key={index} className={`border-2 rounded-3xl px-3 py-2 ${isDarkMode ? 'border-dark-mode bg-light-mode' : 'text-white border-light-mode bg-light-mode'}`}>
-                        {tech}
-                      </span>
-                    ))
-                  ) : (
-                    <span className='border border-blue-300 rounded-3xl px-3 py-2'>{me.tech}</span>
-                  )}
-                </div>
-              )}
+              <div className={`flex flex-wrap gap-4 text-sm mt-10 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+                {work.tech.map((tech, index) => (
+                  <span key={index} className={`border-2 rounded-3xl px-3 py-2 ${isDarkMode ? 'border-dark-mode bg-light-mode' : 'text-white border-light-mode bg-light-mode'}`}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
