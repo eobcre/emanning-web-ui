@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const axiosClient = axios.create({
   baseURL: 'https://api.emanning.dev',
-  // baseURL: import.meta.env.VITE_URL,
+  // baseURL: import.meta.env.VITE_LOCAL_URL,
 });
 
 interface getParams {
