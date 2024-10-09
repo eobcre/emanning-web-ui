@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Icon } from '@iconify/react';
 import useStore from '../store/useStore';
 import { useRetrieveRepos } from '../hooks/useRepo';
 import RepoCard from '../components/RepoCard';
 import Button from '../components/Button';
+import Work_Task_Image from '../assets/image.png';
 interface RepoData {
   id: number;
   name: string;
@@ -23,9 +23,10 @@ const Gallery = () => {
         <div className='pt-20'>
           <div className='relative'>
             <h1 className={`custom-font text-light-mode text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0`}>Work</h1>
-            <div className='flex items-center gap-2 pb-14'>
-              <p className='text-2xl uppercase'>Coming Soon...</p>
-              <Icon icon="dashicons:admin-tools" className='text-3xl' />
+            <div className='flex items-center gap-2 pb-28'>
+              <a href='https://emanning-app.xyz' target='_blank' rel='noopener noreferrer' className='hover:opacity-70'>
+                <img src={Work_Task_Image} alt='image' className='w-[320px]' />
+              </a>
             </div>
             <h1 className={`custom-font text-light-mode text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0`}>Latest Code</h1>
             {/* <div className={`absolute top-[4.5rem] border-t-[20px] border-t-[#303030] opacity-50 w-full`}></div> */}
