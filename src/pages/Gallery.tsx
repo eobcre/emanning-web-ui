@@ -23,17 +23,17 @@ const Gallery = () => {
       <div className='xl:px-36'>
         <div className='pt-20'>
           <div className='relative'>
-            <h1 className={`custom-font text-light-mode text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0`}>Work</h1>
+            <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Work</h1>
             <div className='flex items-center gap-2 pb-28'>
               <a href='https://emanning-app.xyz' target='_blank' rel='noopener noreferrer' className='hover:opacity-70'>
                 <img src={Work_Task_Image} alt='image' className='rounded-md w-[320px]' />
               </a>
               <div className='relative'>
-                <img src={Work_Unsplash_Image} alt='image' className='rounded-md opacity-50 w-[385px]' />
+                <img src={Work_Unsplash_Image} alt='image' className='rounded-md opacity-50 w-[440px] h-[255px]' />
                 <p className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl text-dark font-bold uppercase'>Coming Soon...</p>
               </div>
             </div>
-            <h1 className={`custom-font text-light-mode text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0`}>Latest Code</h1>
+            <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Latest Code</h1>
             {/* <div className={`absolute top-[4.5rem] border-t-[20px] border-t-[#303030] opacity-50 w-full`}></div> */}
           </div>
           <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 rounded -mt-3 sm:-mt-4 lg:p-20 md:-mt-5 lg:-mt-6`}>
