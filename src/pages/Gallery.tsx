@@ -3,7 +3,7 @@ import useStore from '../store/useStore';
 import { useRetrieveRepos } from '../hooks/useRepo';
 import RepoCard from '../components/RepoCard';
 import Button from '../components/Button';
-import Work_Task_Image from '../assets/image.png';
+import Work_Task_Image from '../assets/task_management_app.png';
 import Work_Balance_App from '../assets/balance_app.png'
 import Work_Unsplash_Image from '../assets/unsplash_screen.png';
 interface RepoData {
@@ -25,18 +25,17 @@ const Gallery = () => {
         <div className='pt-20'>
           <div className='relative'>
             <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Work</h1>
-            <div className='flex items-center gap-2 pb-28'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 pb-28'>
               <a href='https://emanning-app.xyz' target='_blank' rel='noopener noreferrer' className='hover:opacity-70'>
-                <img src={Work_Task_Image} alt='image' className='rounded-md w-[320px]' />
+                <img src={Work_Task_Image} alt='image' className='rounded-md w-full' />
               </a>
               <div className='relative'>
               <a href='https:/balanceapp.io' target='_blank' rel='noopener noreferrer' className='hover:opacity-70'>
-                <img src={Work_Balance_App} alt='image' className='rounded-md w-[436px]' />
+                <img src={Work_Balance_App} alt='image' className='rounded-md w-full' />
               </a>
               </div>
-              <div className='relative'>
-                <img src={Work_Unsplash_Image} alt='image' className='rounded-md opacity-50 w-[440px] h-[255px]' />
-                <p className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-xl text-dark font-bold uppercase'>Coming Soon...</p>
+              <div>
+                <img src={Work_Unsplash_Image} alt='image' className='rounded-md opacity-50 w-full' />
               </div>
             </div>
             <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Latest Code</h1>
