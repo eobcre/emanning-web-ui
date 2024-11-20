@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import useStore from '../store/useStore';
 import Button from './Button';
@@ -18,12 +18,13 @@ interface NavProps {
 
 const Nav: React.FC<NavProps> = ({ isNavOpen, setNavOpen, toggleMode, navData }) => {
   const { isDarkMode } = useStore();
+  const [isResponsive, setResponsive] = useState(false);
 
   const ref = useRef<HTMLDivElement | null>(null);
 
   // scrolling background
   const applyNavBg = () => {
-    if (ref.current) {
+    if (ref.current && !isResponsive) {
       const isScrolled = window.scrollY > 0;
 
       // when scrolling
@@ -38,7 +39,13 @@ const Nav: React.FC<NavProps> = ({ isNavOpen, setNavOpen, toggleMode, navData })
     }
   };
 
+  const onResize = () => {
+    const screenWidth = window.innerWidth;
+    setResponsive(screenWidth <= 767);
+  };
+
   useEffect(() => {
+    onResize();
     applyNavBg();
 
     window.addEventListener('scroll', applyNavBg);
@@ -55,7 +62,7 @@ const Nav: React.FC<NavProps> = ({ isNavOpen, setNavOpen, toggleMode, navData })
       ref={ref}
       className={`fixed top-0 right-0 z-10 border-l-2 border-l-light-mode h-full transition-transform transform md:h-[7rem] md:w-full md:border-none md:transform-none md:flex md:justify-between md:items-center md:px-2 ${
         isNavOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}
+      } ${isDarkMode ? 'bg-dark' : 'bg-light'}`}
     >
       <div></div>
       <ul className={`flex flex-col gap-10 text-center mt-14 px-10 py-4 md:flex-row md:gap-14 md:mt-0 md:p-0 text-xl font-bold uppercase ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
