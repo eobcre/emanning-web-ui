@@ -22,7 +22,6 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
   const [isButtonVisible, setButtonVisible] = useState(false);
   const [isArrowVisible, setArrowVisible] = useState(false);
   const [isHoverShowCase, setHoverShowCase] = useState(false);
-  const [isHoverResume, setHoverResume] = useState(false);
   const { isDarkMode, toggleDarkMode } = useStore();
 
   const navigate = useNavigate();
