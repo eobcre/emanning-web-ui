@@ -112,17 +112,6 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
                 onMouseEnter={() => setHoverShowCase(true)}
                 onMouseLeave={() => setHoverShowCase(false)}
               />
-              <Button
-                buttonName={isHoverResume ? 'View' : 'Resume'}
-                className={`${
-                  isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
-                }`}
-                onMouseEnter={() => setHoverResume(true)}
-                onMouseLeave={() => setHoverResume(false)}
-                href='/assets/Resume.pdf'
-                target='_blank'
-                rel='noopener noreferrer'
-              />
             </div>
           )}
         </div>
