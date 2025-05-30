@@ -36,7 +36,7 @@ const About = () => {
         {/* left container */}
         <div className='flex contents-scroll md:w-1/2'>
           <h1 className={`px-6 pb-16 md:px-0 md:pb-0 md:flex md:items-center custom-font text-7xl uppercase sm:text-[14vw] ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-            {isVisible ? 'My Career' : 'About Me'}
+            {isVisible ? 'Exper ience' : 'About Me'}
           </h1>
         </div>
         {/* right container */}
