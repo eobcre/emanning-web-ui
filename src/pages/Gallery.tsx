@@ -1,20 +1,20 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import useStore from '../store/useStore';
-import { useRetrieveRepos } from '../hooks/useRepo';
+// import { useRetrieveRepos } from '../hooks/useRepo';
 import { getMyProjects } from '../data/galleryData';
-import RepoCard from '../components/RepoCard';
-import Button from '../components/Button';
-interface RepoData {
-  id: number;
-  name: string;
-  html_url: string;
-  description?: string;
-}
+// import RepoCard from '../components/RepoCard';
+// import Button from '../components/Button';
+// interface RepoData {
+//   id: number;
+//   name: string;
+//   html_url: string;
+//   description?: string;
+// }
 
 const Gallery = () => {
-  const [isHoverMore, setHoverMore] = useState(false);
+  // const [isHoverMore, setHoverMore] = useState(false);
   const { isDarkMode } = useStore();
-  const { data: repoData } = useRetrieveRepos();
+  // const { data: repoData } = useRetrieveRepos();
   // console.log('repoData', repoData);
 
   return (
