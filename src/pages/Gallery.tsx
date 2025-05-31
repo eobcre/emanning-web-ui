@@ -22,7 +22,10 @@ const Gallery = () => {
       <div className='xl:px-36'>
         <div className='pt-20'>
           <div className='relative'>
-            <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Work</h1>
+            <h1 className={`flex flex-col custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+              <span className='text-yellow'>03</span>
+              Work
+            </h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 pb-28'>
               {getMyProjects.map((project) => (
                 <a href={project.link} target='_blank' rel='noopener noreferrer' className={`${project.hoverEffect ? 'hover:opacity-70' : ''}`}>

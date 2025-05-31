@@ -35,7 +35,8 @@ const About = () => {
       <div className='md:flex'>
         {/* left container */}
         <div className='flex contents-scroll md:w-1/2'>
-          <h1 className={`px-6 pb-16 md:px-0 md:pb-0 md:flex md:items-center custom-font text-7xl uppercase sm:text-[14vw] ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+          <h1 className={`flex flex-col px-6 pt-28 pb-16 md:px-0 md:pb-0 md:flex md:items-center custom-font text-7xl uppercase sm:text-[14vw] ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+            <span className='text-yellow text-9xl'>{isVisible ? '02' : '01'}</span>
             {isVisible ? 'Exper ience' : 'About Me'}
           </h1>
         </div>
@@ -55,7 +56,7 @@ const About = () => {
               During my time away from the computer, I'm usually reading, cooking and enjoying a coffee at cafe. These moments away from the screen recharge my creativity and keep me inspired.
             </p>
           </div>
-          {/* career section */}
+          {/* experience section */}
           {getMyExperience.map((work) => (
             <div ref={sectionRef} key={work.id}>
               <span className={`text-sm md:text-base ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.date}</span>

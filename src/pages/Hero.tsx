@@ -82,10 +82,11 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
         </div>
         <Nav isNavOpen={isNavOpen} setNavOpen={setNavOpen} toggleMode={toggleMode} navData={navData} />
       </div>
-      <div className='flex flex-col justify-center items-center min-h-[16rem] md:block grow sm:mt-16 px-10'>
+      <div className='flex flex-col justify-center items-center min-h-[16rem] md:block grow sm:mt-28 px-10'>
+        <span className={`text-xl font-bold uppercase ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'}`}>Emmy Manning</span>
         {isTitleVisible && (
           <h1
-            className={`custom-font text-[8rem] leading-[8rem] mt-10 sm:text-[14rem] sm:leading-[14rem] uppercase ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${
+            className={`custom-font text-[8rem] leading-[8rem] mt-4 sm:text-[14rem] sm:leading-[14rem] uppercase ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${
               isTitleVisible ? 'block-fade-in' : ''
             }`}
           >

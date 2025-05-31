@@ -49,7 +49,10 @@ const ContactPage = () => {
   return (
     <div className={`sm:rounded-md px-10 pb-10 w-full min-h-screen ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
       <div className='pt-20 xl:px-36'>
-        <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Contact</h1>
+        <h1 className={`flex flex-col custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+          <span className='text-yellow'>04</span>
+          Contact
+        </h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type='text'
