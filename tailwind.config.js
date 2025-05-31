@@ -13,6 +13,7 @@ export default {
         'light-mode': '#303030',
         dark: '#5a5339',
         light: '#e2c311',
+        'yellow': '#FFCE1B',
       },
     },
   },
