@@ -22,7 +22,7 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
   const [isSubTitleVisible, setSubTitleVisible] = useState(false);
   const [isButtonVisible, setButtonVisible] = useState(false);
   const [isArrowVisible, setArrowVisible] = useState(false);
-  const [isHoverShowCase, setHoverShowCase] = useState(false);
+  const [isHoverCV, setHoverCV] = useState(false);
   const { isDarkMode, toggleDarkMode } = useStore();
 
   const navigate = useNavigate();
@@ -110,13 +110,13 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
           {isButtonVisible && (
             <div className={`flex gap-7 ${isButtonVisible ? 'block-fade-in' : ''}`}>
               <Button
-                buttonName={isHoverShowCase ? 'View' : 'Showcase'}
-                onClick={() => navigate('./showcase')}
+                buttonName={isHoverCV ? 'View' : 'CV'}
+                onClick={() => navigate('./emanning-cv')}
                 className={`${
                   isDarkMode ? 'bg-dark-mode text-light-mode uppercase font-bold rounded-md mt-6 p-3 w-[10rem]' : 'bg-light-mode text-white uppercase font-bold rounded-md mt-6 p-3 w-[10rem]'
                 }`}
-                onMouseEnter={() => setHoverShowCase(true)}
-                onMouseLeave={() => setHoverShowCase(false)}
+                onMouseEnter={() => setHoverCV(true)}
+                onMouseLeave={() => setHoverCV(false)}
               />
             </div>
           )}

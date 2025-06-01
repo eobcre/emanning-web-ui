@@ -1,11 +1,12 @@
 import { Routes, Route } from 'react-router-dom';
 import { useRef } from 'react';
 import Hero from './pages/Hero';
-import ShowCase from './pages/ShowCase';
+import CV from './pages/CV';
 import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+// import ShowCase from './pages/ShowCase';
 
 export const HomePage = () => {
   const aboutRef = useRef<HTMLDivElement | null>(null);
@@ -43,10 +44,10 @@ export const HomePage = () => {
 
 const App = () => {
   return (
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/showcase' element={<ShowCase />} />
-      </Routes>
+    <Routes>
+      <Route path='/' element={<HomePage />} />
+      <Route path='/emanning-cv' element={<CV />} />
+    </Routes>
   );
 };
 
