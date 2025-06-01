@@ -17,6 +17,7 @@ interface MainProps {
 
 const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRef, galleryRef, contactRef }) => {
   const [isNavOpen, setNavOpen] = useState(false);
+  const [isNameVisible, setNameVisible] = useState(false);
   const [isTitleVisible, setTitleVisible] = useState(false);
   const [isSubTitleVisible, setSubTitleVisible] = useState(false);
   const [isButtonVisible, setButtonVisible] = useState(false);
@@ -33,6 +34,10 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
   const navData = getNavData(scrollToTop, scrollToSection, aboutRef, galleryRef, contactRef);
 
   useEffect(() => {
+    const delayName = setTimeout(() => {
+      setNameVisible(true);
+    }, 50);
+
     const delayTitle = setTimeout(() => {
       setTitleVisible(true);
     }, 500);
@@ -50,6 +55,7 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
     }, 4000);
 
     return () => {
+      clearTimeout(delayName);
       clearTimeout(delayTitle);
       clearTimeout(delaySubTitle);
       clearTimeout(delayButton);
@@ -74,7 +80,7 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
               isNavOpen ? (
                 <Icon icon='zondicons:close' className={`text-3xl fixed top-4 right-4 z-20 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`} />
               ) : (
-                <Icon icon='fontisto:nav-icon-grid' className={`text-[#303030] text-3xl fixed top-4 right-4 z-20 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`} />
+                <Icon icon='fontisto:nav-icon-grid' className={`text-3xl fixed top-4 right-4 z-20 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`} />
               )
             }
             onClick={toggleNav}
@@ -83,7 +89,7 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
         <Nav isNavOpen={isNavOpen} setNavOpen={setNavOpen} toggleMode={toggleMode} navData={navData} />
       </div>
       <div className='flex flex-col justify-center items-center min-h-[16rem] md:block grow sm:mt-28 px-10'>
-        <span className={`text-xl font-bold uppercase ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'}`}>Emmy Manning</span>
+        {isNameVisible && <span className={`text-xl font-bold uppercase pb-[-40px] ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${isNameVisible ? 'block-fade-in' : ''}`}>Emmy Manning</span>}
         {isTitleVisible && (
           <h1
             className={`custom-font text-[8rem] leading-[8rem] mt-4 sm:text-[14rem] sm:leading-[14rem] uppercase ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${
@@ -97,7 +103,7 @@ const Hero: React.FC<MainProps> = ({ scrollNextSection, scrollToSection, aboutRe
         )}
         <div className='min-h-[3rem]'>
           {isSubTitleVisible && (
-            <p className={`text-xl font-bold uppercase py-3 ${isDarkMode ? 'text-[#e4d5b7]' : 'text-[#303030]'} ${isSubTitleVisible ? 'block-fade-in' : ''}`}>Full Stack Developer</p>
+            <p className={`text-xl font-bold uppercase py-3 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${isSubTitleVisible ? 'block-fade-in' : ''}`}>Full Stack Developer</p>
           )}
         </div>
         <div className='min-h-[6rem]'>
