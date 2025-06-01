@@ -13,7 +13,8 @@ export default {
         'light-mode': '#303030',
         dark: '#5a5339',
         light: '#e2c311',
-        'yellow': '#FFCE1B',
+        yellow: '#ffce1b', // number index light mode
+        olive: '#6a644c', // number index dark mode
       },
     },
   },
