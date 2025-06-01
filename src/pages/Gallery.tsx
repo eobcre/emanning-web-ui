@@ -22,8 +22,8 @@ const Gallery = () => {
       <div className='xl:px-36'>
         <div className='pt-20'>
           <div className='relative'>
-            <h1 className={`flex flex-col custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-              <span className='text-yellow'>03</span>
+            <h1 className={`flex flex-col custom-font text-7xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+              <span className={isDarkMode ? 'text-olive' : 'text-yellow'}>03</span>
               Work
             </h1>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 pb-28'>
