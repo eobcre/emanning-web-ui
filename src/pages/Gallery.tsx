@@ -1,7 +1,7 @@
 // import { useState } from 'react';
+import WorkCard from '../components/WorkCard';
 import useStore from '../store/useStore';
 // import { useRetrieveRepos } from '../hooks/useRepo';
-import { getMyProjects } from '../data/galleryData';
 // import RepoCard from '../components/RepoCard';
 // import Button from '../components/Button';
 // interface RepoData {
@@ -26,13 +26,8 @@ const Gallery = () => {
               <span className={isDarkMode ? 'text-olive' : 'text-yellow'}>03</span>
               Work
             </h1>
-            <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 pb-28'>
-              {getMyProjects.map((project) => (
-                <a href={project.link} target='_blank' rel='noopener noreferrer' className={`${project.hoverEffect ? 'hover:opacity-70' : ''}`}>
-                  <img src={project.image} alt='image' className={project.style} />
-                </a>
-              ))}
-            </div>
+            {/* work cards */}
+              <WorkCard />
             {/* <h1 className={`custom-font text-5xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Latest Code</h1> */}
           </div>
           {/* <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 rounded -mt-3 sm:-mt-4 lg:p-20 md:-mt-5 lg:-mt-6`}>
