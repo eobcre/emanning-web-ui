@@ -47,13 +47,13 @@ const ContactPage = () => {
   const textareaStyle = 'text-light-mode rounded-md outline-none resize-none mt-6 p-4 w-full';
 
   return (
-    <div className={`sm:rounded-md px-10 pb-10 w-full min-h-screen ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
+    <div className={`sm:rounded-md px-10 pb-10 w-full min-h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className='pt-20 xl:px-36'>
         <h1 className={`flex flex-col custom-font text-7xl uppercase mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
           <span className={isDarkMode ? 'text-olive' : 'text-yellow'}>04</span>
           Contact
         </h1>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/2'>
           <input
             type='text'
             id='name'
