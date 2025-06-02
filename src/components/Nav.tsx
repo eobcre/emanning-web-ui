@@ -69,7 +69,7 @@ const Nav: React.FC<NavProps> = ({ isNavOpen, setNavOpen, toggleMode, navData })
         {navData.map((item) => (
           <li
             key={item.id}
-            className='nav-item'
+            className={`nav-item ${isDarkMode ? 'nav-item-hover-dark' : ''}`}
             onClick={() => {
               item.scroll();
               setNavOpen(false);
