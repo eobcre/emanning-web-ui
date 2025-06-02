@@ -6,7 +6,6 @@ import About from './pages/About';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
-// import ShowCase from './pages/ShowCase';
 
 export const HomePage = () => {
   const aboutRef = useRef<HTMLDivElement | null>(null);
