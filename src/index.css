@@ -86,6 +86,9 @@
 .nav-item:hover::after {
   width: 100%;
 }
+.nav-item-hover-dark::after {
+  background-color: #e4d5b7;
+}
 
 /* mobile nav background */
 .dark-nav-bg {
