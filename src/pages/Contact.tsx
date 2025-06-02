@@ -49,9 +49,9 @@ const ContactPage = () => {
   return (
     <div className={`sm:rounded-md px-10 pb-10 w-full min-h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className='pt-20 xl:px-36'>
-        <h1 className={`flex flex-col custom-font text-7xl uppercase mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+        <h1 className={`flex flex-col text-7xl font-bold tracking-tight mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
           <span className={isDarkMode ? 'text-olive' : 'text-yellow'}>04</span>
-          Contact
+          iCONTACT .
         </h1>
         <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/2'>
           <input
@@ -87,16 +87,8 @@ const ContactPage = () => {
           <p className={`mt-2 ${isDarkMode ? 'text-dark-mode' : 'text-red-600'}`}>{errors.message?.message as React.ReactNode}</p>
           <div className='flex justify-center items-center my-6'>
             <Button
-              buttonName={
-                isHoverSend ? (
-                  <div className='flex justify-center items-center'>
-                    <Icon icon='lucide:send' className='text-2xl' />
-                  </div>
-                ) : (
-                  'Send'
-                )
-              }
-              className={`uppercase font-bold rounded-md p-3 w-[10rem] ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`}
+              buttonName={isHoverSend ? <Icon icon='ri:send-plane-2-fill' width='24' height='24' /> : <Icon icon='ri:send-plane-2-line' width='24' height='24' />}
+              className={`uppercase font-bold rounded-full p-4 ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`}
               onMouseEnter={() => setHoverSend(true)}
               onMouseLeave={() => setHoverSend(false)}
             />
