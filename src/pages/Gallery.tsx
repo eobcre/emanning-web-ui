@@ -22,9 +22,9 @@ const Gallery = () => {
       <div className='xl:px-36'>
         <div className='pt-20'>
           <div className='relative'>
-            <h1 className={`flex flex-col custom-font text-7xl uppercase mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+            <h1 className={`flex flex-col text-7xl font-bold tracking-tight mb-14 sm:text-[8vw] xs:mb-0 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
               <span className={isDarkMode ? 'text-olive' : 'text-yellow'}>03</span>
-              Work
+              iWORK .
             </h1>
             {/* work cards */}
               <WorkCard />
