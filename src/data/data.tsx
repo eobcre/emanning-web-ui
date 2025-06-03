@@ -1,5 +1,4 @@
 import { nanoid } from 'nanoid';
-import { Icon } from '@iconify/react';
 import { RefObject } from 'react';
 
 // * * * nav bar
