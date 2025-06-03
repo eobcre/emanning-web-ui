@@ -5,12 +5,12 @@ const WorkCard = () => {
   const { isDarkMode } = useStore();
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 pb-28'>
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-4 pb-6 md:pb-28'>
       {/* card */}
       {getMyProjects.map((project, index) => (
         <div
           key={project.id}
-          className={`rounded-md p-2
+          className={`md:rounded-md p-2
             ${index === 0 ? 'md:col-span-2' : ''} 
             ${isDarkMode ? 'bg-light-mode' : 'bg-[#444444]'}`}
         >
@@ -21,10 +21,10 @@ const WorkCard = () => {
             </div>
           </a>
           {/* card description */}
-          <div className={`flex justify-between items-center mt-1 ${isDarkMode ? 'text-dark-mode' : ''}`}>
-            <p className='font-bold uppercase pl-2'>{project.name}</p>
+          <div className={`flex flex-col md:flex-row justify-between md:items-center mt-3 md:mt-1 ${isDarkMode ? 'text-dark-mode' : ''}`}>
+            <p className='custom-600-font uppercase pl-2'>{project.name}</p>
             {/* skill tag */}
-            <div className='flex flex-wrap gap-3 p-4'>
+            <div className='flex flex-wrap gap-3 pl-2 py-4 md:p-4'>
               {project.skills.map((skill) => (
                 <span className={`text-xs border rounded-full px-6 py-1 ${isDarkMode ? 'border-dark-mode' : 'border-white'}`}>{skill}</span>
               ))}
