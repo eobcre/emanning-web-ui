@@ -6,8 +6,8 @@ const Experience = () => {
 
   return (
     <>
-      {getMyExperience.map((work) => (
-        <div key={work.id}>
+      {getMyExperience.map((work, index) => (
+        <div key={work.id} className={`${index !== 0 ? 'pt-[3rem]' : ''}`}>
           <span className={`text-sm md:text-base ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.date}</span>
           <p className={`text-xl md:text-xl font-bold mt-1 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.name}</p>
           <p className={`text-sm md:text-base font-bold mt-1 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.position}</p>
