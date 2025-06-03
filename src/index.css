@@ -1,6 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;1,500&');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,500&');
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-500-font {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.custom-600-font {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
 
 .text-font {
   font-family: 'Arial', sans-serif;
