@@ -1,16 +1,20 @@
 import { Link } from 'react-router-dom';
 import { getFooterIconData } from '../data/data';
+import test from '../assets/cp/cp.png';
 
 const Footer = () => {
   return (
-    <footer className='text-sm tablet:text-lg desktop:text-lg bg-light-mode flex flex-col tablet:flex-row desktop:flex-row justify-center items-center text-white px-6 py-10 w-full'>
-      <p className='tablet:mr-10 desktop:mr-10'>&copy; {new Date().getFullYear()} Emmy Manning All Rights Reserved.</p>
-      {/* icon */}
-      <div className='lg:flex'>
-        <div className='flex justify-center gap-4 pt-4 tablet:pt-0 desktop:pt-0'>
-          {getFooterIconData.map((icon) => (
-            <Link key={icon.id} to={icon.href} target={icon.target} rel={icon.rel}>
-              {icon.icon}
+    <footer className='bg-light-mode text-white pt-20 md:px-10 w-full'>
+      <div className='flex flex-col gap-10 md:flex-row md:justify-between md:gap-0'>
+        {/* cp */}
+        <div className='order-2 md:order-1'>
+          <img src={test} alt='' width={1000} />
+        </div>
+        {/* social links */}
+        <div className='flex flex-col gap-2 order-1 md:order-2 font-bold pl-4'>
+          {getFooterIconData.map((link) => (
+            <Link key={link.id} to={link.href} target={link.target} rel={link.rel} className='hover:opacity-70 cursor-pointer'>
+              {link.name}
             </Link>
           ))}
         </div>
