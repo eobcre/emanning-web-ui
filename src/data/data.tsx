@@ -55,21 +55,21 @@ export const getMyExperience = [
 export const getFooterIconData = [
   {
     id: nanoid(),
-    icon: <Icon icon='bi:linkedin' className='text-white text-3xl hover:opacity-70' />,
+    name: 'iLINKEDIN',
     href: 'https://www.linkedin.com/in/emmymanning',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
     id: nanoid(),
-    icon: <Icon icon='pajamas:github' className='text-white text-3xl hover:opacity-70' />,
+    name: 'iGITHUB',
     href: 'https://github.com/eobcre',
     target: '_blank',
     rel: 'noopener noreferrer',
   },
   {
     id: nanoid(),
-    icon: <Icon icon='ri:send-plane-fill' className='text-white text-3xl hover:opacity-70' />,
+    name: 'iEMAIL',
     href: 'mailto:eobcre@gmail.com',
   },
 ];
