@@ -69,7 +69,7 @@ const Nav: React.FC<NavProps> = ({ isNavOpen, setNavOpen, toggleMode, navData })
         {navData.map((item) => (
           <li
             key={item.id}
-            className={`nav-item ${isDarkMode ? 'nav-item-hover-dark' : ''}`}
+            className={`nav-item custom-500-font ${isDarkMode ? 'nav-item-hover-dark' : ''}`}
             onClick={() => {
               item.scroll();
               setNavOpen(false);
@@ -85,7 +85,7 @@ const Nav: React.FC<NavProps> = ({ isNavOpen, setNavOpen, toggleMode, navData })
           className={`text-[4rem] ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}
           onClick={toggleMode}
         />
-        <span className={`font-bold ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{isDarkMode ? 'OFF' : 'ON'}</span>
+        <span className={`custom-600-font ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{isDarkMode ? 'OFF' : 'ON'}</span>
       </div>
     </nav>
   );
