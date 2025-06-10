@@ -12,12 +12,6 @@ export const HomePage = () => {
   const galleryRef = useRef<HTMLDivElement | null>(null);
   const contactRef = useRef<HTMLDivElement | null>(null);
 
-  const scrollNextSection = () => {
-    if (aboutRef.current) {
-      aboutRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   const scrollToSection = (sectionRef: React.RefObject<HTMLDivElement> | null) => {
     if (sectionRef && sectionRef.current) {
       sectionRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -26,14 +20,14 @@ export const HomePage = () => {
 
   return (
     <>
-      <Hero scrollNextSection={scrollNextSection} scrollToSection={scrollToSection} aboutRef={aboutRef} galleryRef={galleryRef} contactRef={contactRef} />
-      <div ref={aboutRef} className='text-white bg-light-mode sm:p-10'>
+      <Hero scrollToSection={scrollToSection} aboutRef={aboutRef} galleryRef={galleryRef} contactRef={contactRef} />
+      <div ref={aboutRef} className='text-white bg-light-mode lg:p-10'>
         <About />
       </div>
-      <div ref={galleryRef} className='text-white bg-light-mode sm:px-10'>
+      <div ref={galleryRef} className='text-white bg-light-mode lg:px-10'>
         <Gallery />
       </div>
-      <div ref={contactRef} className='text-white bg-light-mode sm:px-10 sm:pt-10'>
+      <div ref={contactRef} className='text-white bg-light-mode lg:px-10 lg:pt-10'>
         <Contact />
       </div>
       <Footer />
