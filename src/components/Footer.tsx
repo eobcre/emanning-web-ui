@@ -10,7 +10,6 @@ const Footer = () => {
   return (
     <footer className='bg-light-mode text-white pt-20 md:px-10 md:pb-10 w-full'>
       <div className='flex flex-col items-center gap-10 md:flex-row md:justify-between md:gap-0'>
-        {/* cp */}
         <div className='order-2 md:order-1'>{isDarkMode ? <img src={cp_dark_mode} alt='' width={600} /> : <img src={cp} alt='' width={600} />}</div>
         {/* social links */}
         <div className='flex flex-col gap-2 order-1 md:order-2 custom-500-font pl-4'>
