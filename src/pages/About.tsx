@@ -1,81 +1,107 @@
 import { useState, useEffect, useRef } from 'react';
-import { getMyExperience } from '../data/data';
 import useStore from '../store/useStore';
+import { useMediaQuery } from 'react-responsive';
+import Experience from './sections/Experience';
+import Hello from './sections/Hello';
 
 const About = () => {
   const [isVisible, setVisible] = useState(false);
   const { isDarkMode } = useStore();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
   // ref
   const sectionRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    console.log('isVisible:', isVisible);
+  }, [isVisible]);
+
   // scroll observer
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setVisible(true);
-      } else {
-        setVisible(false);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setVisible(entry.isIntersecting);
+      },
+      {
+        threshold: 0.2,
+        rootMargin: '-20% 0px -40% 0px',
       }
-    });
+    );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const current = sectionRef.current;
+    if (current) {
+      observer.observe(current);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (current) {
+        observer.unobserve(current);
       }
     };
-  }, []);
+  }, [isDesktop]);
 
   return (
-    <div className={`py-20 sm:rounded-md md:px-10 w-full min-h-screen md:pb-10 ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
-      <div className='md:flex'>
-        {/* left container */}
-        <div className='flex contents-scroll md:w-1/2'>
-          <h1 className={`flex flex-col px-6 pt-28 pb-16 md:px-0 md:pb-0 md:flex md:items-center custom-font text-7xl uppercase sm:text-[14vw] ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-            <span className={`text-9xl ${isDarkMode ? 'text-olive' : 'text-yellow'}`}>{isVisible ? '02' : '01'}</span>
-            {isVisible ? 'Exper ience' : 'About Me'}
-          </h1>
-        </div>
-        {/* right container */}
-        <div className='flex flex-col gap-20 px-6 md:px-14 md:py-20 md:w-1/2 min-h-screen'>
-          {/* about section */}
-          <div className='flex flex-col justify-center gap-6 md:h-screen'>
-            <p className={`text-2xl font-bold ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Full Stack Software Developer based in PA.</p>
-            <p className={`text-md md:text-lg opacity-80 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-              Fast-forward to the present, I am currently developing an operating system tailored for financial services, where I integrate both ends expertise to create seamless and secure
-              applications. I began my journey in the industry as a software tester, where I honed my attention to detail and problem solving skills. My career path took me through diverse roles,
-              including map alignment for Google Map. I've made meaningful contributions to developing medical surveys, emphasizing my commitment to projects that impact lives. I've also had the
-              privilege of leading a Frontend Developer Internship at a startup specializing in web development, which allowed me to learn, develop, mentor, and guide the team. I am always passionate
-              about creative coding and driven by an insatiable curiosity to learn new technologies.
-            </p>
-            <p className={`text-md md:text-lg opacity-80 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-              During my time away from the computer, I'm usually reading, cooking and enjoying a coffee at cafe. These moments away from the screen recharge my creativity and keep me inspired.
-            </p>
-          </div>
-          {/* experience section */}
-          {getMyExperience.map((work) => (
-            <div ref={sectionRef} key={work.id}>
-              <span className={`text-sm md:text-base ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.date}</span>
-              <p className={`text-xl md:text-xl font-bold mt-1 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.name}</p>
-              <p className={`text-sm md:text-base font-bold mt-1 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.position}</p>
-              <p className={`md:text-lg opacity-80 mt-4 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>{work.description}</p>
-              {/* tag */}
-              <div className={`flex flex-wrap gap-4 text-sm mt-10 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-                {work.tech.map((tech, index) => (
-                  <span key={index} className={`border-2 rounded-3xl px-3 py-2 ${isDarkMode ? 'border-dark-mode bg-light-mode' : 'text-white border-light-mode bg-light-mode'}`}>
-                    {tech}
-                  </span>
-                ))}
+    <>
+      {/* mobile */}
+      {isMobile && (
+        <div className={`w-full min-h-screen px-6 py-20 pb-10 ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
+          <div className='md:flex'>
+            <div className='flex contents-scroll md:w-1/2'>
+              <h1 className={`flex flex-col text-7xl sm:text-[11vw] pb-16 md:pt-28 md:pb-0 md:px-0 md:flex tracking-tight ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+                <span className={`text-[7rem] md:text-[10rem] ${isDarkMode ? 'text-olive' : 'text-yellow'}`}>01</span>
+                <span className='custom-500-font'>hELLO .</span>
+              </h1>
+            </div>
+            <div className='flex flex-col gap-14 md:gap-20 md:px-14 md:py-20 md:w-1/2 min-h-screen'>
+              <Hello />
+              <h1 className={`flex md:flex flex-col text-7xl sm:text-[11vw] md:pt-28 md:pb-0 md:px-0 tracking-tight ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+                <span className={`text-[7rem] md:text-[10rem] ${isDarkMode ? 'text-olive' : 'text-yellow'}`}>02</span>
+                <span className='custom-500-font'>
+                  iEXPER
+                  <br />
+                  IENCE .
+                </span>
+              </h1>
+              <div>
+                <Experience />
               </div>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+      {/* desktop */}
+      {isDesktop && (
+        <div className={`rounded-md w-full min-h-screen pb-10 py-20 md:px-10 ${isDarkMode ? 'bg-dark' : 'bg-light'}`}>
+          <div className='md:flex'>
+            {/* left container */}
+            <div className='flex contents-scroll md:w-1/2'>
+              <h1 className={`flex md:flex flex-col text-7xl sm:text-[11vw] px-6 pb-16 md:pt-28 md:px-0 md:pb-0 tracking-tighter ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+                <span className={`text-[7rem] md:text-[10rem] ${isDarkMode ? 'text-olive' : 'text-yellow'}`}>{isVisible ? '02' : '01'}</span>
+                <span className='custom-500-font'>
+                  {isVisible ? (
+                    <span>
+                      iEXPERI
+                      <br />
+                      ENCE .
+                    </span>
+                  ) : (
+                    'hELLO .'
+                  )}
+                </span>
+              </h1>
+            </div>
+            {/* right container */}
+            <div className='flex flex-col gap-20 px-6 md:px-14 md:py-20 md:w-1/2 min-h-screen'>
+              <Hello />
+              <div ref={sectionRef}>
+                <Experience />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

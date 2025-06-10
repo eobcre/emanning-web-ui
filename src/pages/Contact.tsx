@@ -47,11 +47,11 @@ const ContactPage = () => {
   const textareaStyle = 'text-light-mode rounded-md outline-none resize-none mt-6 p-4 w-full';
 
   return (
-    <div className={`sm:rounded-md px-10 pb-10 w-full min-h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
-      <div className='pt-20 xl:px-36'>
-        <h1 className={`flex flex-col text-7xl font-bold tracking-tight mb-14 sm:text-[8vw] xs:mb-0  ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
-          <span className={isDarkMode ? 'text-olive' : 'text-yellow'}>04</span>
-          iCONTACT .
+    <div className={`lg:rounded-md px-6 pb-10 w-full min-h-screen ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+      <div className='pt-10 md:pt-20 lg:px-36'>
+        <h1 className={`flex flex-col text-6xl sm:text-[11vw] tracking-tighter xs:mb-0 md:mb-10 ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>
+          <span className={`text-[7rem] md:text-[10rem] ${isDarkMode ? 'text-olive' : 'text-yellow'}`}>04</span>
+          <span className='custom-500-font'>GET IN<br />TOUCH .</span>
         </h1>
         <form onSubmit={handleSubmit(onSubmit)} className='lg:w-1/2'>
           <input
@@ -88,7 +88,7 @@ const ContactPage = () => {
           <div className='flex justify-center items-center my-6'>
             <Button
               buttonName={isHoverSend ? <Icon icon='ri:send-plane-2-fill' width='24' height='24' /> : <Icon icon='ri:send-plane-2-line' width='24' height='24' />}
-              className={`uppercase font-bold rounded-full p-4 ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`}
+              className={`rounded-full p-4 ${isDarkMode ? 'bg-dark-mode text-light-mode' : 'bg-light-mode text-white'}`}
               onMouseEnter={() => setHoverSend(true)}
               onMouseLeave={() => setHoverSend(false)}
             />
