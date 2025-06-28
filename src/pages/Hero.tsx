@@ -73,8 +73,8 @@ const Hero: React.FC<MainProps> = ({ scrollToSection, aboutRef, galleryRef, cont
       <div className='flex flex-col justify-center min-h-screen px-10'>
         <div className='leading-none'>
           <span className={`custom-500-font text-[0.8rem] sm:text-[1.1rem] uppercase ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'}`}>Emmy Manning | Full Stack Developer</span>
-          <h1 className={`custom-600-font text-[4.6rem] sm:text-[14vw] tracking-tighter ${isDarkMode ? 'text-olive' : 'text-yellow'} ${isTitleVisible ? 'fade-in' : ''}`}>iCREATE</h1>
-          <h1 className={`custom-500-font text-[5.2rem] sm:text-[14vw] tracking-tighter ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${isNextTitleVisible ? 'fade-in' : ''}`}>iDEVELOP</h1>
+          <h1 className={`custom-500-font text-[4.6rem] sm:text-[14vw] tracking-tighter ${isDarkMode ? 'text-olive' : 'text-yellow'} ${isTitleVisible ? 'fade-in' : ''}`}>iCREATE</h1>
+          <h1 className={`custom-500-font text-[4rem] sm:text-[14vw] tracking-tighter ${isDarkMode ? 'text-dark-mode' : 'text-light-mode'} ${isNextTitleVisible ? 'fade-in' : ''}`}>iDEVELOP</h1>
         </div>
         <Button
           buttonName={isHoverCV ? <Icon icon='material-symbols:play-arrow' width='24' height='24' /> : <span className='custom-500-font tracking-widest'>CV</span>}
