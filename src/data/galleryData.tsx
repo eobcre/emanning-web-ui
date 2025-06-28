@@ -25,7 +25,7 @@ export const getMyProjects = [
   {
     id: nanoid(),
     image: unsplashAppImage,
-    style: 'opacity-20 rounded-md w-full',
+    style: 'rounded-md w-full',
     hoverEffect: false,
     name: 'Photo App',
     skills: ['React', 'DB', 'REST API', 'AWS'],
