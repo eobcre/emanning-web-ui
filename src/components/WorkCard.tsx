@@ -12,6 +12,7 @@ const WorkCard = () => {
           key={project.id}
           className={`md:rounded-md p-2
             ${index === 0 ? 'md:col-span-2' : ''} 
+            ${index === 2 ? 'grayscale opacity-30' : ''}
             ${isDarkMode ? 'bg-light-mode' : 'bg-[#444444]'}`}
         >
           {/* link */}
